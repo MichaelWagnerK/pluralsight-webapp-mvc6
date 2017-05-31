@@ -1,13 +1,24 @@
-﻿(function() {
-    var ele = document.getElementById("userName");
-    ele.innerHTML = "Beavis";
+﻿(function () {
+    var $sidebarAndWrapper = $("#sidebar", "#wrapper");
+    var $icon = $("#sidebarToggle i.fa");
 
-    var main = document.getElementById("main");
-    main.onmouseenter = function() {
-        main.style.backgroundColor = "#888";
-    };
+    var $sidebar = $("#sidebar");
+    var $wrapper = $("#wrapper");
 
-    main.onmouseleave = function() {
-        main.style.backgroundColor = "";
-    };
+    $("#sidebarToggle").on("click",
+        function() {
+            //$sidebarAndWrapper.toggleClass("hide-sidebar");
+
+            $sidebar.toggleClass("hide-sidebar");
+            $wrapper.toggleClass("hide-sidebar");
+
+            if ($sidebar.hasClass("hide-sidebar")) {
+                $icon.removeClass("fa-angle-left");
+                $icon.addClass("fa-angle-right");
+            } else {
+                $icon.addClass("fa-angle-left");
+                $icon.removeClass("fa-angle-right");
+            }
+        });
+
 })();
