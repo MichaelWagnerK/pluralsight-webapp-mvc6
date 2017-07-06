@@ -4,5 +4,9 @@
   },
   "MailSettings": {
     "ToAddress": "someone@somewhere.com"
-  }
+  },
+  "Keys": {
+    "BingKey": "AjCz-fnxsED1sieqxJIK8l7xAEKn8p9kpHoOK50TH55aDPSTFjTDFBQ-rcr_HTEj"
+  } 
 }
+
