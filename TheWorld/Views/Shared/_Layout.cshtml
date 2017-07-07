@@ -12,12 +12,20 @@
 <body>
 
     <div id="sidebar">
-        <img src="~/img/TowerBridge.jpg" alt="Tower Bridge" class="headshot" />
-        <span id="userName">Tower Bridge</span>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <img src="~/img/TowerBridge.jpg" alt="Tower Bridge" class="headshot"/>
+            <span id="userName">@User.Identity.Name</span>
+        }
         <ul class="nav">
             <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
             <li><a asp-controller="App" asp-action="About">About</a></li>
             <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li><a asp-controller="App" asp-action="Trips">Trips</a></li>
+                <li><a asp-controller="Auth" asp-action="Logout">Logout</a></li>
+            }
         </ul>
     </div>
 
@@ -37,12 +45,12 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#" class="btn btn-sm btn-info">
-                        <i class="fa fa-save"></i>Save
+                            <i class="fa fa-save"></i>Save
                         </a>
                     </li>
                     <li>
                         <a href="#" class="btn btn-sm btn-info">
-                        <i class="fa fa-print"></i>Print
+                            <i class="fa fa-print"></i>Print
                         </a>
                     </li>
                 </ul>
